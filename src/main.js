@@ -1,5 +1,5 @@
-import "./content.css";
-import "./messageModule.css";
+//import "./content.css";
+//import "./messageModule.css";
 
 document.querySelector(
   "#app"
