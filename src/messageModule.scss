@@ -1,0 +1,145 @@
+#messageModule {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url("lp.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  padding-top: 12svh;
+}
+.messageModuleRow {
+  height: 18svh;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 2svh 0;
+}
+.messageModuleRowTrack {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5svh;
+  gap: 12svh;
+}
+.messageModuleMessage {
+  height: 80%;
+  width: 240px;
+  min-width: 200px;
+  margin: 0 0;
+  border: 2px dashed rgba(184, 135, 11, 0.2);
+  backdrop-filter: blur(4px);
+  background-color: rgba(245, 222, 179, 0.3);
+  border-radius: 2px;
+  p {
+    text-align: center;
+    overflow: hidden;
+  }
+  p.messageText {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+  }
+  p.messageUser {
+    height: 20%;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+  }
+}
+#messageModulePanelButton {
+  position: fixed;
+  bottom: 2vh;
+  right: 2vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  z-index: 10;
+  animation: bouncePause 5s infinite ease-in-out;
+  img {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+}
+#messageModulePanel {
+  aspect-ratio: 4 / 5;
+  height: 65vh;
+  position: fixed;
+  top: 13vh;
+  right: 50%;
+  transform: translate(50%, 150%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgb(0, 0, 0, 0.5);
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    padding: 0 20px;
+    margin: 1vh 0;
+  }
+  p {
+    font-size: 1rem;
+    color: black;
+    padding: 0 20px;
+    margin: 1vh 0;
+  }
+  label {
+    font-size: 1rem;
+    color: black;
+    margin: 1vh 0 1vh 0;
+  }
+  input,
+  textarea {
+    width: 90%;
+    max-width: 700px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 1vh;
+    font-size: 1rem;
+  }
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  button {
+    margin-top: 1vh;
+    width: 90%;
+    max-width: 700px;
+    height: 40px;
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: darkgoldenrod;
+    }
+  }
+}
+#messageModulePanel.open {
+  transform: translate(50%, 0%);
+}

@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+@font-face {
+  font-family: "Tangerine";
+  src: url("./Tangerine-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  width: 100%;
+  height: 100%;
+  background: goldenrod url(clean-textile.png);
+  background-repeat: repeat;
+}
+#app {
+  height: fit-content;
+  width: 100%;
+  min-width: 364px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+#titleFloat {
+  position: absolute;
+  top: 1.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0px 2px 0px black;
+  text-align: center;
+  font-family: "Tangerine", sans-serif;
+  z-index: 1000;
+  text-decoration: underline;
+}
+#mainColumnA,
+#mainColumnB {
+  width: 100%;
+  max-width: 580px;
+  min-width: 50%;
+  min-height: 100svh;
+  height: 100svh;
+  background-color: white;
+  flex: 1;
+  @media (min-width: 1536px) {
+    min-width: 768px;
+  }
+}
+#mainColumnB {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+@media (max-width: 768px) {
+  #app {
+    flex-direction: column;
+  }
+  #mainColumnA,
+  #mainColumnB {
+    max-width: 768px;
+    min-width: none;
+  }
+  #mainColumnB {
+    height: fit-content;
+  }
+}
+
+.videoSection {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  margin-top: 5vh;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10vh);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  p {
+    margin: 1rem 0;
+  }
+  video {
+    width: 100%;
+    max-width: 768px;
+    height: auto;
+    border-radius: 5px;
+    filter: sepia(0.4);
+    overflow: hidden;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 2s ease;
+  }
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (min-width: 769px) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &:first-of-type {
+    margin-top: 8vh;
+  }
+}
+
+.moneyImg {
+  aspect-ratio: 1 / 1;
+  height: 2rem;
+  margin: 0rem 0.8rem;
+  animation: iconGlow 2s infinite;
+}
+//Money Tags put in as spans
+
+span {
+  font-size: 1.2rem;
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 0.5rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes bouncePause {
+  0%,
+  10%,
+  20% {
+    transform: translateY(0);
+  }
+  5%,
+  15% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes iconGlow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  }
+}
