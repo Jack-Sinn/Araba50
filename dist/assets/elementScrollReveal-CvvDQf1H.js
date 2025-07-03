@@ -1,0 +1,1 @@
+const i=document.getElementById("mainColumnB").querySelectorAll(".videoSection"),n=e=>e.getBoundingClientRect().top<window.innerHeight;window.addEventListener("scroll",()=>{i.forEach(e=>{n(e)&&e.classList.add("visible")})});
