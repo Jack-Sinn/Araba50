@@ -48,6 +48,8 @@ body {
   font-family: "Tangerine", sans-serif;
   z-index: 1000;
   text-decoration: underline;
+  backdrop-filter: blur(4px);
+  padding: 0.4rem 0.8rem;
 }
 #mainColumnA,
 #mainColumnB {

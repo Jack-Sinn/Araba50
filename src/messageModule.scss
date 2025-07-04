@@ -8,6 +8,7 @@
   background-position: center;
   overflow: hidden;
   padding-top: 12svh;
+  animation: sepiaToNormal 3s ease-in-out forwards;
 }
 .messageModuleRow {
   height: 18svh;
@@ -20,6 +21,18 @@
   overflow-y: hidden;
   margin: 2svh 0;
 }
+#messageModuleRow0 .messageModuleRowTrack {
+  animation-delay: 0s;
+}
+#messageModuleRow1 .messageModuleRowTrack {
+  animation-delay: 0.5s;
+}
+#messageModuleRow2 .messageModuleRowTrack {
+  animation-delay: 1s;
+}
+#messageModuleRow3 .messageModuleRowTrack {
+  animation-delay: 1.5s;
+}
 .messageModuleRowTrack {
   height: 100%;
   width: fit-content;
@@ -28,7 +41,18 @@
   justify-content: flex-start;
   padding: 0 5svh;
   gap: 12svh;
+  animation: offPageOnPage 3s linear forwards;
+  transform: translateX(125vw);
 }
+@keyframes offPageOnPage {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .messageModuleMessage {
   height: 80%;
   width: 240px;
@@ -142,4 +166,12 @@
 }
 #messageModulePanel.open {
   transform: translate(50%, 0%);
+}
+@keyframes sepiaToNormal {
+  0% {
+    filter: sepia(1);
+  }
+  100% {
+    filter: sepia(0.2);
+  }
 }

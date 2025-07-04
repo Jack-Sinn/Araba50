@@ -53,6 +53,9 @@ body {
   font-family: "Tangerine", sans-serif;
   z-index: 1000;
   text-decoration: underline;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  padding: 0.4rem 0.8rem;
 }
 
 #mainColumnA,
