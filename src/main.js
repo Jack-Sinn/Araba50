@@ -1,6 +1,3 @@
-//import "./content.css";
-//import "./messageModule.css";
-
 document.querySelector(
   "#app"
 ).innerHTML = `<div id="titleFloat">ARABA @ 50 CELEBRATION</div><div id="mainColumnA"></div><div id="mainColumnB"></div>`;
@@ -63,6 +60,9 @@ or
 `;
 
 document.addEventListener("DOMContentLoaded", () => {
+  import("./content.css");
+  import("./messageModule.css");
   import("./elementScrollReveal.js");
   import("./messageModule.js");
+  console.log("Modules loaded successfully");
 });
