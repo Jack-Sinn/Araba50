@@ -60,8 +60,6 @@ or
 `;
 
 document.addEventListener("DOMContentLoaded", () => {
-  import("./content.css");
-  import("./messageModule.css");
   import("./elementScrollReveal.js");
   import("./messageModule.js");
   console.log("Modules loaded successfully");
