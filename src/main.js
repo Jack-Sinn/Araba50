@@ -51,6 +51,20 @@ mainColumnB.innerHTML = `<div class="videoSection">
   <video width="640" height="360" controls poster="/blacksquare.png" src="/video2.mp4"></video>
   <p>We've all had a journey</p>
 </div>
+<span>@50 Music List</span>
+<iframe 
+  width="90%"
+  aspectratio="16/9"
+  height="320"
+  title="YouTube video player"
+  src="https://www.youtube.com/embed/videoseries?list=PLujr2enf4jz07QsIlXzsQg0-kRvR-DPNG" 
+  frameborder="0" 
+  style="pointer-events: auto; z-index: 1;"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
+
+<div style="min-height: 3vh; width: 100%"></div>
 <p style="font-size: 1.2rem">For your gifts on this joyous occasion kindly use</p>
 <span><img src="momo.png" class="moneyImg" />Momo @ 0596043456 </span>
 or
