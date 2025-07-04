@@ -1,136 +1,47 @@
-/*import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  projectId: "PROJECT_ID",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: "araba50messages.firebaseapp.com",
+  projectId: "araba50messages",
 };
+
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);*/
+const db = getFirestore(app);
 
-let messageArray = [
-  {
-    user: "John Doe",
-    text: "Happy 50th Birthday!",
-  },
-  {
-    user: "Jane Smith",
-    text: "Wishing you a fantastic year ahead!",
-  },
-  {
-    user: "Alice Johnson",
-    text: "Cheers to 50 years of amazing memories!",
-  },
-  {
-    user: "Bobert Green",
-    text: "Here's to many more adventures together!",
-  },
-  {
-    user: "Charlie Brown",
-    text: "Celebrating 50 years of friendship!",
-  },
-  {
-    user: "David Smith",
-    text: "Here's to the next chapter!",
-  },
-  {
-    user: "Emily Davis",
-    text: "Cheers to 50 years of love and laughter!",
-  },
-  {
-    user: "Frank Wilson",
-    text: "Here's to many more years of happiness!",
-  },
-  {
-    user: "George Martin",
-    text: "Wishing you all the best on this special occasion!",
-  },
-  {
-    user: "Hannah Brown",
-    text: "Here's to 50 years of wonderful memories!",
-  },
-  {
-    user: "Irene Adler",
-    text: "Celebrating a lifetime of achievements!",
-  },
-  {
-    user: "Jack Daniels",
-    text: "Here's to 50 years of great times!",
-  },
-  {
-    user: "Kathy Lee",
-    text: "Wishing you a fabulous 50th birthday!",
-  },
-  {
-    user: "Liam Neeson",
-    text: "Cheers to 50 years of love and laughter!",
-  },
-  {
-    user: "Mia Wong",
-    text: "Here's to many more years of happiness!",
-  },
-  {
-    user: "Nina Simone",
-    text: "Celebrating a lifetime of wonderful memories!",
-  },
-  {
-    user: "Oscar Wilde",
-    text: "Wishing you all the best on this special occasion!",
-  },
-  {
-    user: "Paul Atreides",
-    text: "Here's to the next chapter in your life!",
-  },
-  {
-    user: "Quinn Fabray",
-    text: "Wishing you a fabulous 50th birthday!",
-  },
-  {
-    user: "Ryder Lynn",
-    text: "Cheers to 50 years of love and laughter!",
-  },
-  {
-    user: "Samantha Evans",
-    text: "Here's to many more years of happiness!",
-  },
-  {
-    user: "Tina Cohen-Chang",
-    text: "Celebrating a lifetime of wonderful memories!",
-  },
-  {
-    user: "Ursula K. Le Guin",
-    text: "Wishing you all the best on this special occasion!",
-  },
-  {
-    user: "Wanda Maximoff",
-    text: "Wishing you a fabulous 50th birthday!",
-  },
-  {
-    user: "Xander Harris",
-    text: "Cheers to 50 years of love and laughter!",
-  },
-  {
-    user: "Yara Greyjoy",
-    text: "Here's to many more years of happiness!",
-  },
-  {
-    user: "Zoe Washburne",
-    text: "Celebrating a lifetime of wonderful memories!",
-  },
-  {
-    user: "Victor Hugo",
-    text: "Here's to the next chapter in your life!",
-  },
+async function fetchData() {
+  try {
+    const querySnapshot = await getDocs(collection(db, "messageArray"));
+    const dataArray = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    console.log(dataArray);
+    return dataArray;
+  } catch (error) {
+    console.error("Error fetching Firestore data:", error);
+  }
+}
+let messageArray = [];
+let initialLoopPosition = 0;
 
-  // Add more messages as needed
-];
+fetchData()
+  .then((data) => {
+    if (data && data.length > 0) {
+      messageArray = data;
+    }
+  })
+  .then(() => assignMessagesToTracks())
+  .then(() => {
+    initialLoopPosition = messageModuleRows[0].getBoundingClientRect().left;
+  });
 
 //#region Message Loop Dragging and Auto-Scrolling
 let messageModuleRows = document.querySelectorAll(".messageModuleRow");
 let messageModuleRowTracks = document.querySelectorAll(".messageModuleRowTrack");
 let trackResets = document.querySelectorAll(".trackReset");
 //find the position of the first message loop
-let initialLoopPosition = messageModuleRows[0].getBoundingClientRect().left;
 // Reset Position when track reset reaches the same position as the first message started
 messageModuleRows.forEach((Row) => {
   Row.addEventListener("scroll", (e) => {
@@ -271,18 +182,7 @@ messageModuleRows[3].addEventListener("touchend", () => {
 //#endregion
 
 //#region Adding Messages
-let messagePanelOpen = false;
-const messagePanel = document.getElementById("messageModulePanel");
-const messagePanelButton = document.getElementById("messageModulePanelButton");
-messagePanelButton.addEventListener("click", () => {
-  //console.log("Message Panel Button Clicked");
-  messagePanelOpen = !messagePanelOpen;
-  if (messagePanelOpen) {
-    messagePanel.classList.add("open");
-  } else {
-    messagePanel.classList.remove("open");
-  }
-});
+
 //#endregion
 
 //setVideos to correct size
@@ -311,7 +211,6 @@ function assignMessagesToTracks() {
       track.appendChild(copy);
     }
   });
-  ``;
   // add copy of the second message of each row to the end of the row
   messageModuleRowTracks.forEach((track, index) => {
     let secondMessage = track.querySelectorAll(".messageModuleMessage")[1];
@@ -322,5 +221,35 @@ function assignMessagesToTracks() {
   });
 }
 
-assignMessagesToTracks();
 //#endregion
+async function submitNewMessage() {
+  try {
+    const docRef = await addDoc(collection(db, "messageArray"), {
+      text: document.getElementById("messageUserMessage").value,
+      user: document.getElementById("messageUserName").value,
+    });
+    console.log("Document written with ID:", docRef.id);
+  } catch (error) {
+    console.error("Error adding document:", error);
+  }
+}
+
+let messagePanelOpen = false;
+const messagePanel = document.getElementById("messageModulePanel");
+const messagePanelButton = document.getElementById("messageModulePanelButton");
+messagePanelButton.addEventListener("click", () => {
+  messagePanelOpen = !messagePanelOpen;
+  if (messagePanelOpen) {
+    messagePanel.classList.add("open");
+  } else {
+    messagePanel.classList.remove("open");
+  }
+});
+const messageUserSubmit = document.getElementById("messageUserSubmit");
+messageUserSubmit.addEventListener("click", () => {
+  submitNewMessage();
+  document.getElementById("messageUserMessage").value = "";
+  document.getElementById("messageUserName").value = "";
+  messagePanelOpen = false;
+  messagePanel.classList.remove("open");
+});
