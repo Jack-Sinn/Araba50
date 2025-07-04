@@ -111,6 +111,7 @@
 #messageModulePanel {
   aspect-ratio: 4/5;
   height: 65vh;
+  max-width: 90%;
   position: fixed;
   top: 13vh;
   right: 50%;
