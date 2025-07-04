@@ -7,15 +7,16 @@
 
 @font-face {
   font-family: "Tangerine";
-  src: url("./Tangerine-Regular.ttf") format("truetype");
+  src: url("./resources/Tangerine-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 body {
   width: 100%;
   height: 100%;
-  background: goldenrod url(clean-textile.png);
+  background: goldenrod url(src/resources/clean-textile.png);
   background-repeat: repeat;
+  display: flex;
 }
 
 #app {
