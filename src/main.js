@@ -19,7 +19,7 @@ mainColumnA.innerHTML = `<div id="messageModule">
         <div id="messageModuleRow3" class="messageModuleRow">
           <div class="messageModuleRowTrack"></div>
         </div>
-        <div id="messageModulePanelButton"><img src="src/resources/message.svg" alt="" /></div>
+        <div id="messageModulePanelButton"><img src="/message.svg" alt="" /></div>
         <div id="messageModulePanel" class="">
           <h1>
             Share Your Thoughts <br />
@@ -42,19 +42,19 @@ mainColumnA.innerHTML = `<div id="messageModule">
 mainColumnB.innerHTML = `<div class="videoSection">
   <h2>Birthday Wishes</h2>
   <p>Thank you for what all you do for our community!</p>
-  <video width="640" height="360" controls poster="src/resources/blacksquare.png" src="src/resources/video1.mp4"></video>
+  <video width="640" height="360" controls poster="/blacksquare.png" src="/video1.mp4"></video>
   <p>Words can barely capture it</p>
 </div>
 <div class="videoSection">
   <h2>Humble Beginnings</h2>
   <p>Some preamble on Arabas story</p>
-  <video width="640" height="360" controls poster="src/resources/blacksquare.png" src="src/resources/video2.mp4"></video>
+  <video width="640" height="360" controls poster="/blacksquare.png" src="/video2.mp4"></video>
   <p>We've all had a journey</p>
 </div>
 <p style="font-size: 1.2rem">For your gifts on this joyous occasion kindly use</p>
-<span><img src="src/resources/momo.png" class="moneyImg" />Momo @ 0596043456 </span>
+<span><img src="momo.png" class="moneyImg" />Momo @ 0596043456 </span>
 or
-<span><img src="src/resources/zelle.png" class="moneyImg" />Zelle @ 0596043456</span>
+<span><img src="zelle.png" class="moneyImg" />Zelle @ 0596043456</span>
 <span>Rosemary Gifty Araba Oppong Mensah</span>
 
 <span style="font-style: italic;text-decoration:none">"Thank You Lord for how far you've brought me</span>
