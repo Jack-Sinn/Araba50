@@ -153,6 +153,7 @@ span {
   margin: 0.5rem 0.5rem;
   display: inline-flex;
   align-items: center;
+  text-align: center;
 }
 
 @keyframes bouncePause {
