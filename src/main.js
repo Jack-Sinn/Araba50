@@ -64,3 +64,4 @@ document.addEventListener("DOMContentLoaded", () => {
   import("./messageModule.js");
   console.log("Modules loaded successfully");
 });
+// This is a test message to ensure the script is running correctly. If you see this, the script is working!
