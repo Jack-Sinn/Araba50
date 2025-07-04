@@ -41,15 +41,15 @@
   justify-content: flex-start;
   padding: 0 5svh;
   gap: 12svh;
-  animation: offPageOnPage 3s linear forwards;
-  transform: translateX(125vw);
+  opacity: 0;
+  animation: transparentToOpaque 1s ease-in-out forwards;
 }
-@keyframes offPageOnPage {
+@keyframes transparentToOpaque {
   0% {
-    transform: translateX(150%);
+    opacity: 0;
   }
   100% {
-    transform: translateX(0%);
+    opacity: 1;
   }
 }
 
