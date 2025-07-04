@@ -54,12 +54,12 @@ mainColumnB.innerHTML = `<div class="videoSection">
 <span>@50 Music List</span>
 <iframe 
   width="90%"
-  aspectratio="16/9"
-  height="320"
+  height="400"
   title="YouTube video player"
   src="https://www.youtube.com/embed/videoseries?list=PLujr2enf4jz07QsIlXzsQg0-kRvR-DPNG" 
   frameborder="0" 
-  style="pointer-events: auto; z-index: 1;"
+  style="pointer-events: auto; z-index: 1;width: 90%; height: 400;"
+  scrolling="no"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
   allowfullscreen>
 </iframe>
