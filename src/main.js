@@ -56,6 +56,9 @@ mainColumnB.innerHTML = `<div class="videoSection">
 or
 <span><img src="src/resources/zelle.png" class="moneyImg" />Zelle @ 0596043456</span>
 <span>Rosemary Gifty Araba Oppong Mensah</span>
+
+<span style="font-style: italic;text-decoration:none">"Thank You Lord for how far you've brought me</span>
+<span style="font-style: italic;text-decoration:none">by your grace i'm crossing 90 with ease"</span>
 <div style="min-height: 5vh; width: 100%"></div>
 `;
 
