@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+/*import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
@@ -6,7 +6,7 @@ const firebaseConfig = {
   projectId: "PROJECT_ID",
 };
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = getFirestore(app);*/
 
 let messageArray = [
   {
